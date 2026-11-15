@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A joyful birthday celebration for LianaBriele Chebet Chirchir.">
+    <meta property="og:title" content="Happy Birthday, LianaBriele!">
+    <meta property="og:description" content="A joyful birthday celebration for LianaBriele Chebet Chirchir.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Happy Birthday, LianaBriele!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="birthday-masthead">
+      <a class="masthead-mark" href="#top" aria-label="LianaBriele's birthday card home">
+        <span aria-hidden="true">♡</span>
+      </a>
+      <p class="masthead-note">A little celebration, made just for you</p>
+      <div class="masthead-actions">
+        <button class="music-button" id="music-button" type="button" aria-pressed="false">
+          <span class="music-icon" aria-hidden="true">♫</span>
+          <span id="music-label">Play Cocomelon music</span>
+        </button>
+        <span id="music-status" class="visually-hidden" role="status" aria-live="polite"></span>
+      </div>
+    </header>
+
+    <main class="birthday-page">
+      <section class="birthday-hero" id="top" aria-labelledby="birthday-title">
+        <img class="hero-photo" src="images/07-forest-portrait.jpeg" alt="" fetchpriority="high">
+        <div class="hero-confetti" aria-hidden="true">
+          <i>✦</i><i>✳</i><i>✧</i><i>✦</i><i>✧</i>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span aria-hidden="true">✧</span> Today we celebrate</p>
+          <h1 id="birthday-title">Happy Birthday <span>LianaBriele</span></h1>
+          <p class="birthday-full-name">Chebet Chirchir</p>
+          <p class="birthday-intro">May your day be filled with giggles, sweet surprises, big dreams, and all the things that make you smile.</p>
+          <div class="hero-actions">
+            <a class="birthday-wish-button" href="#memories">See her photos <span aria-hidden="true">→</span></a>
+            <a class="birthday-note-button" href="#birthday-note"><span aria-hidden="true">♡</span> A little note</a>
+          </div>
+        </div>
+        <a class="hero-scroll-cue" href="#memories"><span aria-hidden="true"></span> Her little moments</a>
+      </section>
+
+      <section class="photo-story" id="memories" aria-labelledby="photo-story-title">
+        <div class="photo-story-heading">
+          <p class="eyebrow">A little album of you</p>
+          <h2 id="photo-story-title">Little moments, <em>big joy.</em></h2>
+          <p class="photo-story-subtitle">A few lovely moments of LianaBriele.</p>
+        </div>
+        <div class="photo-carousel" aria-label="Photos of LianaBriele" aria-roledescription="carousel">
+          <button class="carousel-arrow carousel-arrow-left" id="previous-photo" type="button" aria-label="Previous photo">←</button>
+          <figure class="featured-photo" aria-live="polite">
+            <img id="featured-image" src="images/07-forest-portrait.jpeg" alt="LianaBriele smiling in the forest">
+            <figcaption>
+              <span id="photo-caption">Simply wonderful</span>
+              <span id="photo-count">07 / 08</span>
+            </figcaption>
+          </figure>
+          <button class="carousel-arrow carousel-arrow-right" id="next-photo" type="button" aria-label="Next photo">→</button>
+        </div>
+        <div class="photo-gallery" id="photo-gallery" aria-label="Choose a birthday photo"></div>
+        <div class="carousel-dots" id="carousel-dots" aria-label="Photo position"></div>
+      </section>
+
+      <section class="birthday-note-section" id="birthday-note" aria-labelledby="birthday-note-title">
+        <div class="note-heading">
+          <p class="eyebrow">A little note</p>
+          <h2 id="birthday-note-title">For <em>LianaBriele</em></h2>
+        </div>
+        <button class="birthday-note-button note-toggle" id="wish-button" type="button" aria-expanded="false" aria-controls="birthday-wish">
+          <span aria-hidden="true">♡</span>
+          <span id="wish-button-label">Open your birthday wish</span>
+        </button>
+        <div class="birthday-wish" id="birthday-wish" hidden>
+          <p>Dear LianaBriele, wishing you a year filled with happy adventures, lovely surprises, and countless reasons to smile. Keep dreaming big and shining bright.</p>
+          <span>With lots of birthday love</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="birthday-footer">
+      <span aria-hidden="true">♡</span>
+      <span>Made with love for LianaBriele Chebet Chirchir</span>
+      <span aria-hidden="true">♡</span>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
