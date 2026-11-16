@@ -63,6 +63,20 @@ a:focus-visible {
   color: #fff7f8;
 }
 
+.music-player {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.music-player[hidden] {
+  display: none;
+}
+
 .masthead-mark {
   display: grid;
   width: 42px;

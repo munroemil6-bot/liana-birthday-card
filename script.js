@@ -19,13 +19,9 @@ const wishButtonLabel = document.querySelector("#wish-button-label");
 const birthdayWish = document.querySelector("#birthday-wish");
 const musicButton = document.querySelector("#music-button");
 const musicLabel = document.querySelector("#music-label");
-const musicStatus = document.querySelector("#music-status");
+const musicPlayer = document.querySelector("#music-player");
 
 let selectedPhoto = 6;
-let audioContext;
-let musicInterval;
-let musicNote = 0;
-const melody = [392.0, 523.25, 587.33, 659.25, 587.33, 523.25, 392.0, 440.0, 523.25, 587.33, 659.25, 587.33, 523.25, 440.0, 392.0];
 
 function selectPhoto(index) {
   selectedPhoto = (index + birthdayPhotos.length) % birthdayPhotos.length;
@@ -81,55 +77,16 @@ wishButton.addEventListener("click", () => {
   wishButtonLabel.textContent = isExpanded ? "Open your birthday wish" : "Close your birthday wish";
 });
 
-function playNextNote() {
-  const oscillator = audioContext.createOscillator();
-  const volume = audioContext.createGain();
-  oscillator.type = "sine";
-  oscillator.frequency.value = melody[musicNote % melody.length];
-  volume.gain.setValueAtTime(0.0001, audioContext.currentTime);
-  volume.gain.exponentialRampToValueAtTime(0.035, audioContext.currentTime + 0.035);
-  volume.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.42);
-  oscillator.connect(volume);
-  volume.connect(audioContext.destination);
-  oscillator.start();
-  oscillator.stop(audioContext.currentTime + 0.44);
-  musicNote += 1;
-}
-
-function stopMusic() {
-  window.clearInterval(musicInterval);
-  musicInterval = undefined;
-  if (audioContext) {
-    audioContext.close();
-    audioContext = undefined;
-  }
-  musicButton.setAttribute("aria-pressed", "false");
-  musicLabel.textContent = "Play Cocomelon music";
-}
-
 musicButton.addEventListener("click", () => {
-  if (audioContext) {
-    stopMusic();
-    musicStatus.textContent = "";
-    return;
-  }
-  if (typeof window.AudioContext === "undefined") {
-    musicStatus.textContent = "Music is not supported in this browser.";
-    return;
-  }
+  const isExpanded = musicButton.getAttribute("aria-expanded") === "true";
+  musicButton.setAttribute("aria-expanded", String(!isExpanded));
+  musicPlayer.hidden = isExpanded;
 
-  audioContext = new window.AudioContext();
-  musicButton.setAttribute("aria-pressed", "true");
-  musicLabel.textContent = "Pause Cocomelon music";
-  musicStatus.textContent = "";
-
-  audioContext.resume().then(() => {
-    if (!audioContext) return;
-    playNextNote();
-    musicInterval = window.setInterval(playNextNote, 420);
-  }).catch((error) => {
-    stopMusic();
-    musicStatus.textContent = "Music could not be started. Please try again.";
-    console.error("Could not start birthday music:", error);
-  });
+  if (isExpanded) {
+    musicPlayer.src = "about:blank";
+    musicLabel.textContent = "Play birthday song";
+  } else {
+    musicPlayer.src = "https://www.youtube-nocookie.com/embed/IIsiWiAAxUM?autoplay=1&rel=0";
+    musicLabel.textContent = "Close birthday song";
+  }
 });

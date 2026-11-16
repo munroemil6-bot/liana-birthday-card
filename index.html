@@ -21,12 +21,12 @@
       </a>
       <p class="masthead-note">A little celebration, made just for you</p>
       <div class="masthead-actions">
-        <button class="music-button" id="music-button" type="button" aria-pressed="false">
+        <button class="music-button" id="music-button" type="button" aria-expanded="false" aria-controls="music-player">
           <span class="music-icon" aria-hidden="true">♫</span>
-          <span id="music-label">Play Cocomelon music</span>
+          <span id="music-label">Play birthday song</span>
         </button>
-        <span id="music-status" class="visually-hidden" role="status" aria-live="polite"></span>
       </div>
+      <iframe class="music-player" id="music-player" title="Birthday song audio on YouTube" aria-hidden="true" tabindex="-1" allow="autoplay; encrypted-media" hidden></iframe>
     </header>
 
     <main class="birthday-page">
